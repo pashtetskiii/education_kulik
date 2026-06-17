@@ -2,3 +2,4 @@ venv
 sqlenv
 .idea
 __pycache__
+creds.py
