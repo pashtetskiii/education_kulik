@@ -4,6 +4,7 @@ import dotenv
 from contextlib import contextmanager
 from psycopg2.extras import DictCursor
 
+dotenv.load_dotenv(override=True)
 
 @contextmanager
 def get_db_connection():
