@@ -1,16 +1,17 @@
 import psycopg2
+import os
+import dotenv
 from contextlib import contextmanager
 from psycopg2.extras import DictCursor
-from lesson_16 import creds
 
 
 @contextmanager
 def get_db_connection():
     conn = psycopg2.connect(
-        dbname=creds.dbname,
-        user=creds.user,
-        password=creds.password,
-        host=creds.host,
+        dbname=os.getenv("DATABASE_NAME"),
+        user=os.getenv("DATABASE_USER"),
+        password=os.getenv("DATABASE_PASSWORD"),
+        host=os.getenv("DATABASE_HOST"),
     )
     try:
         yield conn
